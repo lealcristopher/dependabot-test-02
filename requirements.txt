@@ -1,2 +1,2 @@
-pydantic==1.10.0
+pydantic==2.12.5
 pytest==9.0.2
