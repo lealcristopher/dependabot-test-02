@@ -1,14 +1,13 @@
 version: 2
+version: 2
 updates:
-  # Configuração para as dependências do Python (Cenário 1 e 2)
   - package-ecosystem: "pip"
-    directory: "/" # Onde está o seu requirements.txt
+    directory: "/"           # Garanta que o requirements.txt esteja aqui
     schedule:
-      interval: "daily" # Verificação diária para agilizar seus testes
-    open-pull-requests-limit: 5
-    labels:
-      - "security"
-      - "python-deps"
+      interval: "daily"      # Ele checa todo dia, mas você pode forçar manual
+    open-pull-requests-limit: 10 # Aumente o limite para ele não "esperar" os de Actions
+    allow:
+      - dependency-type: "all" # Garante que ele olhe diretas e indiretas
 
   # Configuração para atualizar as próprias versões das Actions
   - package-ecosystem: "github-actions"
