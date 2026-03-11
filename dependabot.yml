@@ -1,0 +1,17 @@
+version: 2
+updates:
+  # Configuração para as dependências do Python (Cenário 1 e 2)
+  - package-ecosystem: "pip"
+    directory: "/" # Onde está o seu requirements.txt
+    schedule:
+      interval: "daily" # Verificação diária para agilizar seus testes
+    open-pull-requests-limit: 5
+    labels:
+      - "security"
+      - "python-deps"
+
+  # Configuração para atualizar as próprias versões das Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
